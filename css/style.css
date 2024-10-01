@@ -20,6 +20,7 @@ body {
     font-family: "Open Sans", system-ui;
     font-weight: bold;
     font-size: 1rem;
+    color: gray;
 }
 
 ul {
@@ -60,7 +61,6 @@ main .left-column {
     height: 100%;
     width: var(--main-col-left-width);
     background-color: black;
-    color: gray;
     flex-shrink: 0;
     padding: 10px 0;
 
@@ -156,6 +156,94 @@ main .content {
 footer {
     height: var(--header-footer-height);
     background-color: #282828;
+
+    display: flex;
+}
+
+footer .footer-song,
+footer .footer-options {
+    flex-basis: 25%;
+}
+
+footer .footer-song,
+footer .footer-options {
+    display: flex;
+    align-items: center;
+}
+
+/* --- Sezione: Song */
+/* --- --- Sezione: Copertina Album */
+footer .footer-song img {
+    float: left;
+    width: 40px;
+    height: 40px;
+    margin: 0 10px;
+}
+
+/* --- --- Sezione: Info Album */
+footer .info-album {
+    display: flex;
+    flex-direction: column;
+    line-height: 0.9rem;
+    padding-right: 30px;
+}
+
+footer .footer-song h2 {
+    font-size: 1rem;
+    color: whitesmoke;
+}
+footer .footer-song h3 {
+    font-size: 0.8rem;
+}
+
+/* --- --- Sezione: Pulsanti Album */
+footer .footer-song nav {
+}
+
+/* --- Sezione: Player */
+footer .footer-player {
+    color: whitesmoke;
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+footer .footer-player > * {
+    padding: 0 30px;
+    height: 50%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* --- --- Sezione: Comandi Canzone (Upper Row) */
+footer .footer-player .upper-row {
+    padding-top: 10px;
+    width: 240px;
+}
+footer .footer-player .upper-row .play-song {
+    border: 2px solid whitesmoke;
+    border-radius: 50%;
+    padding: 0 5px;
+}
+footer .footer-player .upper-row .play-song > i {
+    width: 10px;
+    height: 10px;
+}
+
+/* --- --- Sezione: Durata Canzone (Lower Row) */
+footer .footer-player .lower-row {
+    width: 100%;
+}
+footer .footer-player .lower-row span {
+    font-size: 0.8rem;
+}
+
+/* --- Sezione: Options */
+footer .footer-options {
+    justify-content: space-between;
 }
 
 /************************************************
