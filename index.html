@@ -5,6 +5,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Spotify</title>
 
+        <!-- FONTS -->
+        <!-- Open Sans -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+            rel="stylesheet"
+        />
+
         <!-- CUSTOM CSS -->
         <link rel="stylesheet" href="./css/style.css" />
     </head>
@@ -14,10 +23,80 @@
             <main>
                 <!-- Left Column -->
                 <div class="col-left">
-                    <img class="logo" src="./img/logo-small.svg" alt="" />
-                    <img src="./img/home.svg" alt="" />
-                    <img src="./img/search.svg" alt="" />
-                    <img src="./img/libreria.svg" alt="" />
+                    <!-- Header della Side-Bar -->
+                    <div class="col-header">
+                        <div>
+                            <!-- small logo -->
+                            <img
+                                class="logo-small d-md-none"
+                                src="./img/logo-small.svg"
+                                alt=""
+                            />
+
+                            <!-- big logo -->
+                            <img
+                                class="logo d-none d-md-inline"
+                                src="./img/logo.svg"
+                                alt=""
+                            />
+                        </div>
+                        <div class="home-container">
+                            <img src="./img/home.svg" alt="" />
+                            <span class="d-none d-md-inline">Home</span>
+                        </div>
+                        <div class="search-container">
+                            <img src="./img/search.svg" alt="" />
+                            <span class="d-none d-md-inline">Cerca</span>
+                        </div>
+                        <div class="library-container">
+                            <img src="./img/libreria.svg" alt="" />
+                            <span class="d-none d-md-inline"
+                                >La tua libreria</span
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Main della Side-Bar -->
+                    <div class="col-main">
+                        <!-- Titolo -->
+                        <h2>PLAYLIST</h2>
+
+                        <!-- Pulsante crea playlist -->
+                        <div class="create-list-container">
+                            <div>+</div>
+                            <span>Crea Playlist</span>
+                        </div>
+
+                        <!-- Playlist create -->
+                        <div class="playlist">Nome Playlist</div>
+                        <div class="playlist">Nome Playlist</div>
+                        <div class="playlist">Nome Playlist</div>
+                        <div class="playlist">Nome Playlist</div>
+                        <div class="playlist">Nome Playlist</div>
+                        <div class="playlist">Nome Playlist</div>
+                        <div class="playlist">Nome Playlist</div>
+                    </div>
+
+                    <!-- Footer della Side-Bar -->
+                    <div class="col-footer">
+                        <div class="download-container">
+                            <img
+                                class="download-icon"
+                                src="./img/download.svg"
+                                alt=""
+                            />
+                            <span class="d-none d-md-inline">Installa app</span>
+                        </div>
+
+                        <div class="profile-container">
+                            <img
+                                class="profile-picture"
+                                src="./img/profile.svg"
+                                alt=""
+                            />
+                            <span class="d-none d-md-inline">John Doe</span>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Right Column -->

@@ -25,6 +25,16 @@
     overflow: hidden;
 }
 
+body {
+    font-family: "Open Sans", system-ui;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.d-none {
+    display: none;
+}
+
 /************************************************
     MAIN 
  ************************************************/
@@ -39,22 +49,47 @@ main .col-left {
     height: 100%;
     width: var(--main-col-left-width);
     background-color: black;
+    color: gray;
     flex-shrink: 0;
     padding: 10px 0;
 
+    display: flex;
+    flex-direction: column;
+}
+
+.col-main {
+    flex-grow: 2;
+}
+
+main .col-header,
+main .col-main,
+main .col-footer {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
 }
 
-main .col-left img.logo {
+main .col-left img.logo-small {
     width: 30px;
+    height: 30px;
     margin-bottom: 10px;
 }
 main .col-left img {
     width: 25px;
+    height: 25px;
     margin: 5px 0;
+}
+main img.download-icon {
+    width: 20px;
+    height: 20px;
+}
+main img.profile-picture {
+    background-color: gray;
+    padding: 2px;
+    margin-top: 10px;
+
+    border-radius: 50%;
 }
 
 /* Right Column */
@@ -107,10 +142,132 @@ footer {
 /************************************************
     RESPONSIVE: MOBILE-FIRST
  ************************************************/
-/* DESKTOP */
-@media screen and (min-width: 1200px) {
+/* TABLET */
+@media screen and (min-width: 878px) {
     :root {
         --main-col-left-width: 300px;
+    }
+
+    /***********************
+        UTILITIES
+     ***********************/
+    .d-md-none {
+        display: none;
+    }
+    .d-md-inline {
+        display: inline;
+    }
+    .d-md-block {
+        display: block;
+    }
+
+    /***********************
+        MAIN 
+     ***********************/
+    main .col-header > div:hover,
+    main .col-main > div:hover,
+    main .col-footer > div:hover:not(.profile-container) {
+        cursor: pointer;
+        color: whitesmoke;
+    }
+
+    /* Left Column */
+    /* ## col-header ## */
+    main .col-left {
+        padding: 0;
+    }
+
+    main .col-header,
+    main .col-main,
+    main .col-footer {
+        display: block;
+    }
+    main .col-header > div {
+        padding-left: 20px;
+    }
+    main .col-main,
+    main .col-footer {
+        padding: 20px;
+    }
+
+    main .col-header > div,
+    main .col-main > div,
+    main .col-footer > div {
+        display: flex;
+        align-items: center;
+    }
+
+    main .col-left img:not(.download-icon) {
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+        filter: contrast(50%);
+    }
+    main .col-left .col-header > div:hover > img:not(.logo-small) {
+        filter: contrast(100%);
+    }
+
+    main .col-left img.logo {
+        width: 150px;
+        height: auto;
+        margin-bottom: 25px;
+        padding-top: 20px;
+    }
+
+    main img.download-icon {
+        margin-right: 20px;
+    }
+
+    main .download-container {
+        border-bottom: 1px solid lightgray;
+        padding-bottom: 5px;
+        margin-bottom: 5px;
+    }
+
+    main .home-container span,
+    main .profile-container span {
+        color: whitesmoke;
+    }
+    main .home-container {
+        border-left: 3px solid lightgreen;
+    }
+
+    /* ## col-main ## */
+    main .col-main h2 {
+        color: whitesmoke;
+        font-size: 1.1rem;
+    }
+
+    main .create-list-container > div {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+
+        font-size: 2.5rem;
+        color: black;
+        background-color: gray;
+
+        margin-right: 10px;
+    }
+    main .create-list-container:hover > div {
+        background-color: whitesmoke;
+    }
+    main .create-list-container {
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    main .playlist {
+        padding: 10px 0;
+    }
+}
+
+/* DESKTOP */
+@media screen and (min-width: 1440px) {
+    :root {
     }
 }
 
