@@ -16,6 +16,12 @@
     box-sizing: border-box;
 }
 
+body {
+    font-family: "Open Sans", system-ui;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
 ul {
     list-style-type: none;
     color: inherit;
@@ -28,12 +34,6 @@ ul {
     height: 100vh;
     width: 100%;
     overflow: hidden;
-}
-
-body {
-    font-family: "Open Sans", system-ui;
-    font-weight: bold;
-    font-size: 1rem;
 }
 
 .d-none {
@@ -49,7 +49,13 @@ main {
     height: calc(100% - var(--header-footer-height));
 }
 
-/* Left Column */
+main > * {
+    overflow-y: hidden;
+}
+
+/* =========================
+    Left Column --- Side-bar 
+ ========================= */
 main .left-column {
     height: 100%;
     width: var(--main-col-left-width);
@@ -62,12 +68,13 @@ main .left-column {
     flex-direction: column;
 }
 
-.main-col {
-    flex-grow: 2;
+main .left-column img {
+    width: 25px;
+    height: 25px;
+    margin: 5px 0;
 }
 
 main .header-col,
-main .main-col,
 main .footer-col {
     display: flex;
     flex-direction: column;
@@ -75,20 +82,26 @@ main .footer-col {
     align-items: center;
 }
 
+/* --- Sezione: HEADER */
+.header-col {
+    flex-grow: 1;
+}
+
+/* --- --- Sezione: Logo Spotify */
 main .left-column img.logo-small {
     width: 30px;
     height: 30px;
     margin-bottom: 10px;
 }
-main .left-column img {
-    width: 25px;
-    height: 25px;
-    margin: 5px 0;
-}
+
+/* --- Sezione: FOOTER */
+/* --- --- Sezione: Download App Button */
 main img.download-icon {
     width: 20px;
     height: 20px;
 }
+
+/* --- --- Sezione: Your Profile */
 main img.profile-picture {
     background-color: gray;
     margin-top: 10px;
@@ -96,7 +109,9 @@ main img.profile-picture {
     border-radius: 50%;
 }
 
-/* Right Column */
+/* =========================
+    Right Column --- Content
+ ========================= */
 main .right-column {
     height: 100%;
     background-color: #141922;
@@ -104,8 +119,8 @@ main .right-column {
     flex-grow: 1;
 }
 
-/* ### main header ### */
-.main-header {
+/* --- Sezione: Header */
+main .main-header {
     width: 100%;
     height: var(--header-footer-height);
     background-color: rgba(0, 0, 0, 0.5);
@@ -114,7 +129,7 @@ main .right-column {
     line-height: var(--header-footer-height);
 }
 
-.main-header button {
+main .main-header button {
     background-color: transparent;
     color: white;
     font-weight: bold;
@@ -124,11 +139,11 @@ main .right-column {
     padding: 13px 40px;
     margin-right: 20px;
 }
-.main-header button:hover {
+main .main-header button:hover {
     cursor: pointer;
 }
 
-/* ### main content ### */
+/* --- Sezione: Contenuto */
 main .content {
     height: calc(100% - var(--header-footer-height));
     color: wheat;
@@ -176,28 +191,23 @@ footer {
         color: whitesmoke;
     }
 
-    /* Left Column */
-    /* ## header-col ## */
+    /* =========================
+        Left Column --- Side-bar 
+     ========================= */
     main .left-column {
         padding: 0;
     }
 
-    main .header-col,
-    main .main-col,
-    main .footer-col {
+    main .left-column > * {
         display: block;
     }
-    main .header-col nav > div {
-        padding-left: 20px;
-    }
+
     main .main-col,
     main .footer-col {
-        padding: 20px;
+        margin: 20px;
     }
 
-    main .header-col nav > div,
-    main .main-col > div,
-    main .footer-col > div {
+    main .left-column > * div:not(.logo-container, .list-button-text) {
         display: flex;
         align-items: center;
     }
@@ -208,28 +218,10 @@ footer {
         margin-right: 10px;
         filter: contrast(50%);
     }
-    main .left-column .header-col nav > div:hover > img:not(.logo-small) {
-        filter: contrast(100%);
-    }
+
     main .left-column img.selected,
     main .left-column img.profile-picture {
         filter: contrast(100%);
-    }
-
-    main .left-column img.logo {
-        width: 150px;
-        height: auto;
-        margin: 20px 0 25px 20px;
-    }
-
-    main img.download-icon {
-        margin-right: 20px;
-    }
-
-    main .download-container {
-        border-bottom: 1px solid lightgray;
-        padding-bottom: 5px;
-        margin-bottom: 5px;
     }
 
     main .home-container span,
@@ -237,30 +229,57 @@ footer {
         color: whitesmoke;
     }
 
-    main .profile-container {
+    /* --- Sezione: HEADER */
+    .header-col {
+        flex-grow: 0;
     }
 
+    /* --- --- Sezione: Logo Spotify */
+    /* --- --- --- Sezione: Big Logo */
+    main .left-column img.logo {
+        width: 150px;
+        height: auto;
+        margin: 20px 0 25px 20px;
+    }
+
+    /* --- --- Sezione: Navigation Tab (Home, Search, Library) */
+    main .header-col nav > div {
+        padding-left: 20px;
+    }
+
+    main .left-column .header-col nav > div:hover > img {
+        filter: contrast(100%);
+    }
+
+    /* --- --- --- Sezione: Home Button */
     main .home-container {
         border-left: 3px solid lightgreen;
     }
 
-    /* ## main-col ## */
+    /* --- Sezione: MAIN */
+    .main-col {
+        flex-grow: 1;
+        overflow-y: auto;
+        min-height: 80px;
+    }
+
+    /* --- --- Sezione: Title */
     main .main-col h2 {
         color: whitesmoke;
         font-size: 1.1rem;
     }
 
+    /* --- --- Sezione: Create Playlist Button */
     main .create-list-container > div {
         width: 40px;
         height: 40px;
         line-height: 40px;
         text-align: center;
+        margin-right: 10px;
 
         font-size: 2.5rem;
         color: black;
         background-color: gray;
-
-        margin-right: 10px;
     }
     main .create-list-container:hover > div {
         background-color: whitesmoke;
@@ -272,8 +291,21 @@ footer {
         padding-bottom: 10px;
     }
 
+    /* --- --- Sezione: Playlist */
     main .playlist {
         padding: 10px 0;
+    }
+
+    /* --- Sezione: FOOTER */
+    /* --- --- Sezione: Download App Button */
+    main .download-container {
+        border-bottom: 1px solid lightgray;
+        padding-bottom: 5px;
+        margin-bottom: 5px;
+    }
+
+    main img.download-icon {
+        margin-right: 20px;
     }
 }
 
@@ -282,7 +314,3 @@ footer {
     :root {
     }
 }
-
-/************************************************
-    FONTS
- ************************************************/
