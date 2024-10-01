@@ -2,10 +2,9 @@
     CUSTOM PROPERTIES
  ************************************************/
 :root {
-    --header-height: 100px;
-    --footer-height: 100px;
+    --header-footer-height: 80px;
 
-    --main-col-left-width: 80px;
+    --main-col-left-width: 50px;
 }
 
 /************************************************
@@ -32,7 +31,7 @@
 main {
     display: flex;
 
-    height: calc(100% - var(--footer-height));
+    height: calc(100% - var(--header-footer-height));
 }
 
 /* Left Column */
@@ -40,8 +39,22 @@ main .col-left {
     height: 100%;
     width: var(--main-col-left-width);
     background-color: black;
-
     flex-shrink: 0;
+    padding: 10px 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+main .col-left img.logo {
+    width: 30px;
+    margin-bottom: 10px;
+}
+main .col-left img {
+    width: 25px;
+    margin: 5px 0;
 }
 
 /* Right Column */
@@ -55,13 +68,30 @@ main .col-right {
 /* ### main header ### */
 .main-header {
     width: 100%;
-    height: var(--header-height);
+    height: var(--header-footer-height);
     background-color: rgba(0, 0, 0, 0.5);
+
+    text-align: right;
+    line-height: var(--header-footer-height);
+}
+
+.main-header button {
+    background-color: transparent;
+    color: white;
+    font-weight: bold;
+    border: 1px solid white;
+    border-radius: 20px;
+
+    padding: 13px 40px;
+    margin-right: 20px;
+}
+.main-header button:hover {
+    cursor: pointer;
 }
 
 /* ### main content ### */
 main .content {
-    height: calc(100% - var(--footer-height));
+    height: calc(100% - var(--header-footer-height));
     color: wheat;
     overflow-y: auto;
 }
@@ -70,7 +100,7 @@ main .content {
     FOOTER 
  ************************************************/
 footer {
-    height: var(--footer-height);
+    height: var(--header-footer-height);
     background-color: #282828;
 }
 
