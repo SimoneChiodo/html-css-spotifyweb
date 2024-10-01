@@ -1,0 +1,89 @@
+/************************************************
+    CUSTOM PROPERTIES
+ ************************************************/
+:root {
+    --header-height: 100px;
+    --footer-height: 100px;
+
+    --main-col-left-width: 80px;
+}
+
+/************************************************
+    RESET 
+ ************************************************/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/************************************************
+    UTILITIES 
+ ************************************************/
+.wrapper {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+/************************************************
+    MAIN 
+ ************************************************/
+main {
+    display: flex;
+
+    height: calc(100% - var(--footer-height));
+}
+
+/* Left Column */
+main .col-left {
+    height: 100%;
+    width: var(--main-col-left-width);
+    background-color: black;
+
+    flex-shrink: 0;
+}
+
+/* Right Column */
+main .col-right {
+    height: 100%;
+    background-color: #141922;
+
+    flex-grow: 1;
+}
+
+/* ### main header ### */
+.main-header {
+    width: 100%;
+    height: var(--header-height);
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* ### main content ### */
+main .content {
+    height: calc(100% - var(--footer-height));
+    color: wheat;
+    overflow-y: auto;
+}
+
+/************************************************
+    FOOTER 
+ ************************************************/
+footer {
+    height: var(--footer-height);
+    background-color: #282828;
+}
+
+/************************************************
+    RESPONSIVE: MOBILE-FIRST
+ ************************************************/
+/* DESKTOP */
+@media screen and (min-width: 1200px) {
+    :root {
+        --main-col-left-width: 300px;
+    }
+}
+
+/************************************************
+    FONTS
+ ************************************************/
