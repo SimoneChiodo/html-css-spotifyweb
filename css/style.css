@@ -16,6 +16,11 @@
     box-sizing: border-box;
 }
 
+ul {
+    list-style-type: none;
+    color: inherit;
+}
+
 /************************************************
     UTILITIES 
  ************************************************/
@@ -45,7 +50,7 @@ main {
 }
 
 /* Left Column */
-main .col-left {
+main .left-column {
     height: 100%;
     width: var(--main-col-left-width);
     background-color: black;
@@ -57,25 +62,25 @@ main .col-left {
     flex-direction: column;
 }
 
-.col-main {
+.main-col {
     flex-grow: 2;
 }
 
-main .col-header,
-main .col-main,
-main .col-footer {
+main .header-col,
+main .main-col,
+main .footer-col {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
 }
 
-main .col-left img.logo-small {
+main .left-column img.logo-small {
     width: 30px;
     height: 30px;
     margin-bottom: 10px;
 }
-main .col-left img {
+main .left-column img {
     width: 25px;
     height: 25px;
     margin: 5px 0;
@@ -86,14 +91,13 @@ main img.download-icon {
 }
 main img.profile-picture {
     background-color: gray;
-    padding: 2px;
     margin-top: 10px;
 
     border-radius: 50%;
 }
 
 /* Right Column */
-main .col-right {
+main .right-column {
     height: 100%;
     background-color: #141922;
 
@@ -164,54 +168,58 @@ footer {
     /***********************
         MAIN 
      ***********************/
-    main .col-header > div:hover,
-    main .col-main > div:hover,
-    main .col-footer > div:hover:not(.profile-container) {
+    main .header-col nav > div:hover,
+    main .main-col > div:hover,
+    main .main-col li:hover,
+    main .footer-col > div:hover:not(.profile-container) {
         cursor: pointer;
         color: whitesmoke;
     }
 
     /* Left Column */
-    /* ## col-header ## */
-    main .col-left {
+    /* ## header-col ## */
+    main .left-column {
         padding: 0;
     }
 
-    main .col-header,
-    main .col-main,
-    main .col-footer {
+    main .header-col,
+    main .main-col,
+    main .footer-col {
         display: block;
     }
-    main .col-header > div {
+    main .header-col nav > div {
         padding-left: 20px;
     }
-    main .col-main,
-    main .col-footer {
+    main .main-col,
+    main .footer-col {
         padding: 20px;
     }
 
-    main .col-header > div,
-    main .col-main > div,
-    main .col-footer > div {
+    main .header-col nav > div,
+    main .main-col > div,
+    main .footer-col > div {
         display: flex;
         align-items: center;
     }
 
-    main .col-left img:not(.download-icon) {
+    main .left-column img:not(.download-icon, .logo-small, .logo) {
         width: 30px;
         height: 30px;
         margin-right: 10px;
         filter: contrast(50%);
     }
-    main .col-left .col-header > div:hover > img:not(.logo-small) {
+    main .left-column .header-col nav > div:hover > img:not(.logo-small) {
+        filter: contrast(100%);
+    }
+    main .left-column img.selected,
+    main .left-column img.profile-picture {
         filter: contrast(100%);
     }
 
-    main .col-left img.logo {
+    main .left-column img.logo {
         width: 150px;
         height: auto;
-        margin-bottom: 25px;
-        padding-top: 20px;
+        margin: 20px 0 25px 20px;
     }
 
     main img.download-icon {
@@ -228,12 +236,16 @@ footer {
     main .profile-container span {
         color: whitesmoke;
     }
+
+    main .profile-container {
+    }
+
     main .home-container {
         border-left: 3px solid lightgreen;
     }
 
-    /* ## col-main ## */
-    main .col-main h2 {
+    /* ## main-col ## */
+    main .main-col h2 {
         color: whitesmoke;
         font-size: 1.1rem;
     }

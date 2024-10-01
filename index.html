@@ -21,64 +21,96 @@
         <div class="wrapper">
             <!-- Main -->
             <main>
-                <!-- Left Column -->
-                <div class="col-left">
-                    <!-- Header della Side-Bar -->
-                    <div class="col-header">
+                <!-- Main ### Two Column -->
+                <!-- Left Column --- Side-Bar -->
+                <div class="left-column">
+                    <!-- HEADER -->
+                    <div class="header-col">
+                        <!-- Logo Spotify -->
                         <div>
-                            <!-- small logo -->
+                            <!-- Small Logo -->
                             <img
                                 class="logo-small d-md-none"
                                 src="./img/logo-small.svg"
                                 alt=""
                             />
 
-                            <!-- big logo -->
+                            <!-- Big Logo -->
                             <img
                                 class="logo d-none d-md-inline"
                                 src="./img/logo.svg"
                                 alt=""
                             />
                         </div>
-                        <div class="home-container">
-                            <img src="./img/home.svg" alt="" />
-                            <span class="d-none d-md-inline">Home</span>
-                        </div>
-                        <div class="search-container">
-                            <img src="./img/search.svg" alt="" />
-                            <span class="d-none d-md-inline">Cerca</span>
-                        </div>
-                        <div class="library-container">
-                            <img src="./img/libreria.svg" alt="" />
-                            <span class="d-none d-md-inline"
-                                >La tua libreria</span
-                            >
-                        </div>
+
+                        <!-- Navigation Tab (Home, Search, Library) -->
+                        <nav>
+                            <!-- Home Button -->
+                            <div class="home-container">
+                                <img
+                                    class="selected"
+                                    src="./img/home.svg"
+                                    alt=""
+                                />
+                                <span class="d-none d-md-inline">Home</span>
+                            </div>
+
+                            <!-- Search Button -->
+                            <div class="search-container">
+                                <img src="./img/search.svg" alt="" />
+                                <span class="d-none d-md-inline">Cerca</span>
+                            </div>
+
+                            <!-- Library Button -->
+                            <div class="library-container">
+                                <img src="./img/libreria.svg" alt="" />
+                                <span class="d-none d-md-inline"
+                                    >La tua libreria</span
+                                >
+                            </div>
+                        </nav>
                     </div>
 
-                    <!-- Main della Side-Bar -->
-                    <div class="col-main">
-                        <!-- Titolo -->
+                    <!-- MAIN -->
+                    <div class="main-col">
+                        <!-- Title -->
                         <h2>PLAYLIST</h2>
 
-                        <!-- Pulsante crea playlist -->
+                        <!-- Create Playlist Button -->
                         <div class="create-list-container">
                             <div>+</div>
                             <span>Crea Playlist</span>
                         </div>
 
-                        <!-- Playlist create -->
-                        <div class="playlist">Nome Playlist</div>
-                        <div class="playlist">Nome Playlist</div>
-                        <div class="playlist">Nome Playlist</div>
-                        <div class="playlist">Nome Playlist</div>
-                        <div class="playlist">Nome Playlist</div>
-                        <div class="playlist">Nome Playlist</div>
-                        <div class="playlist">Nome Playlist</div>
+                        <!-- Playlist -->
+                        <ul>
+                            <li>
+                                <div class="playlist">Nome Playlist</div>
+                            </li>
+                            <li>
+                                <div class="playlist">Nome Playlist</div>
+                            </li>
+                            <li>
+                                <div class="playlist">Nome Playlist</div>
+                            </li>
+                            <li>
+                                <div class="playlist">Nome Playlist</div>
+                            </li>
+                            <li>
+                                <div class="playlist">Nome Playlist</div>
+                            </li>
+                            <li>
+                                <div class="playlist">Nome Playlist</div>
+                            </li>
+                            <li>
+                                <div class="playlist">Nome Playlist</div>
+                            </li>
+                        </ul>
                     </div>
 
-                    <!-- Footer della Side-Bar -->
-                    <div class="col-footer">
+                    <!-- FOOTER -->
+                    <div class="footer-col">
+                        <!-- Download App Button -->
                         <div class="download-container">
                             <img
                                 class="download-icon"
@@ -88,6 +120,7 @@
                             <span class="d-none d-md-inline">Installa app</span>
                         </div>
 
+                        <!-- Your Profile -->
                         <div class="profile-container">
                             <img
                                 class="profile-picture"
@@ -99,8 +132,8 @@
                     </div>
                 </div>
 
-                <!-- Right Column -->
-                <div class="col-right">
+                <!-- Right Column --- Content -->
+                <div class="right-column">
                     <!-- Header -->
                     <div class="main-header">
                         <button>EFFETTUA L'UPGRADE</button>
