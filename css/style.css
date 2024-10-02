@@ -23,6 +23,10 @@ body {
     color: gray;
 }
 
+img {
+    max-width: 100%;
+}
+
 ul {
     list-style-type: none;
     color: inherit;
@@ -208,6 +212,85 @@ main .content {
     height: calc(100% - var(--header-footer-height));
     color: wheat;
     overflow-y: auto;
+}
+
+/* --- --- Sezione: Navigation Tab */
+main .content nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    color: gray;
+    font-size: 0.8rem;
+    margin: 0 30px;
+}
+
+main .content nav li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 15px 10px;
+}
+main .content nav li:hover {
+    cursor: pointer;
+    color: whitesmoke;
+}
+
+main .content nav .selected {
+    border-bottom: 2px solid lightgreen;
+    width: 30px;
+    padding-top: 3px;
+}
+
+/* --- --- Sezione: Canzoni Recently Played */
+main section {
+    padding: 20px;
+}
+main section ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    padding-top: 20px;
+}
+
+main section li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    max-width: 45%;
+}
+
+main section h2 {
+    color: whitesmoke;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+main section h3 {
+    font-size: 1rem;
+    text-align: center;
+    color: whitesmoke;
+
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+main section p {
+    font-size: 0.8rem;
+    color: gray;
+    padding-bottom: 10px;
+}
+main section ul p {
+    text-align: center;
+    padding-bottom: 0;
+}
+
+/* --- --- --- Sezione: Elenco Canzoni */
+main section.popular-artist img {
+    border-radius: 50%;
 }
 
 /************************************************
@@ -530,6 +613,18 @@ footer .footer-options li:last-child {
 /* TABLET - md */
 @media screen and (min-width: 942px) {
     /***********************
+        MAIN 
+     ***********************/
+    /* =========================
+        Right Column --- Content 
+     ========================= */
+    /* --- Sezione: Canzoni Recently Played */
+    /* --- --- Sezione: Elenco Canzoni */
+    main section li {
+        max-width: 23%;
+    }
+
+    /***********************
         FOOTER 
      ***********************/
     /* --- Sezione: Song */
@@ -553,6 +648,18 @@ footer .footer-options li:last-child {
 
 /* DESKTOP - lg */
 @media screen and (min-width: 1440px) {
+    /***********************
+        MAIN 
+     ***********************/
+    /* =========================
+        Right Column --- Content 
+     ========================= */
+    /* --- Sezione: Canzoni Recently Played */
+    /* --- --- Sezione: Elenco Canzoni */
+    main section li {
+        max-width: 250px;
+    }
+
     /***********************
         FOOTER 
      ***********************/
