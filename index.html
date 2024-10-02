@@ -55,7 +55,7 @@
                         <!-- Navigation Tab (Home, Search, Library) -->
                         <nav>
                             <!-- Home Button -->
-                            <div class="home-container">
+                            <div class="active home-container">
                                 <img
                                     class="selected"
                                     src="./img/home.svg"
@@ -81,7 +81,8 @@
                     </div>
 
                     <!-- MAIN -->
-                    <div class="main-col d-none d-md-block">
+                    <!-- Create Playlist Button -->
+                    <div class="playlist-button d-none d-md-block">
                         <!-- Title -->
                         <h2>PLAYLIST</h2>
 
@@ -90,8 +91,10 @@
                             <div class="list-button-text">+</div>
                             <span>Crea Playlist</span>
                         </div>
+                    </div>
 
-                        <!-- Playlist -->
+                    <!-- Playlist List -->
+                    <div class="playlist-list d-none d-md-block">
                         <ul>
                             <li>
                                 <div class="playlist">Nome Playlist</div>
@@ -208,22 +211,44 @@
 
                     <!-- Lower Row --- Durata Canzone -->
                     <div class="lower-row">
+                        <!-- Tempo passato -->
                         <span>0:25</span>
-                        <!-- INSERIRE BARRA PROGRESSO *=-+*=-+*=-+*=-+*=-+*=-+ -->
+
+                        <!-- Barra canzone -->
+                        <div class="progress-bar">
+                            <div class="progress"></div>
+                        </div>
+
+                        <!-- Durata completa -->
                         <span>4:35</span>
                     </div>
                 </section>
 
                 <!-- Third Section --- Options -->
                 <section class="footer-options">
-                    <!-- Pulsante Coda -->
-                    <i class="fa-solid fa-list"></i>
+                    <ul>
+                        <li>
+                            <!-- Pulsante Coda -->
+                            <i class="fa-solid fa-list"></i>
+                        </li>
 
-                    <!-- Pulsante Desktop -->
-                    <i class="fa-solid fa-desktop"></i>
+                        <li>
+                            <!-- Pulsante Desktop -->
+                            <i class="fa-solid fa-desktop"></i>
+                        </li>
 
-                    <!-- Pulsante Volume -->
-                    <i class="fa-solid fa-volume-high"></i>
+                        <li>
+                            <!-- Pulsante Volume -->
+                            <i class="fa-solid fa-volume-high"></i>
+                        </li>
+
+                        <li>
+                            <!-- Barra Volume -->
+                            <div class="progress-bar">
+                                <div class="progress"></div>
+                            </div>
+                        </li>
+                    </ul>
                 </section>
             </footer>
         </div>

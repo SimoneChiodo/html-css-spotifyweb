@@ -28,6 +28,10 @@ ul {
     color: inherit;
 }
 
+button {
+    font-family: inherit;
+}
+
 /************************************************
     UTILITIES 
  ************************************************/
@@ -39,6 +43,39 @@ ul {
 
 .d-none {
     display: none;
+}
+
+.progress-bar {
+    flex-grow: 1;
+    min-width: 100px;
+
+    height: 4px;
+    background-color: gray;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.progress {
+    position: relative;
+    width: 30%;
+    height: 100%;
+    background-color: whitesmoke;
+    border-radius: 2px;
+}
+.progress-bar:hover .progress {
+    background-color: lime;
+}
+.progress-bar:hover .progress::after {
+    position: absolute;
+    top: 50%;
+    right: 0;
+
+    content: "";
+    width: 15px;
+    height: 15px;
+    background-color: whitesmoke;
+    border-radius: 50%;
+
+    transform: translate(50%, -50%);
 }
 
 /************************************************
@@ -94,8 +131,22 @@ main .left-column img.logo-small {
     margin-bottom: 10px;
 }
 
+/* --- Sezione: MAIN */
+/* --- --- Sezione: Playlist List */
+main .playlist-list {
+    flex-grow: 1;
+}
+
 /* --- Sezione: FOOTER */
+main .footer-col {
+    margin-top: auto;
+}
+
 /* --- --- Sezione: Download App Button */
+main .download-container {
+    margin-right: 3px;
+}
+
 main img.download-icon {
     width: 20px;
     height: 20px;
@@ -195,9 +246,15 @@ footer .footer-song h2 {
 footer .footer-song h3 {
     font-size: 0.8rem;
 }
+footer .footer-song h3:hover {
+    color: whitesmoke;
+    text-decoration: underline;
+}
 
 /* --- --- Sezione: Pulsanti Album */
-footer .footer-song nav {
+footer .footer-song nav div:hover {
+    color: whitesmoke;
+    cursor: pointer;
 }
 
 /* --- Sezione: Player */
@@ -209,12 +266,13 @@ footer .footer-player {
     flex-direction: column;
     align-items: center;
 }
+
 footer .footer-player > * {
     padding: 0 30px;
     height: 50%;
 
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
 }
 
@@ -223,14 +281,30 @@ footer .footer-player .upper-row {
     padding-top: 10px;
     width: 240px;
 }
+
+footer .footer-player .upper-row i:hover {
+    cursor: pointer;
+}
+
 footer .footer-player .upper-row .play-song {
     border: 2px solid whitesmoke;
     border-radius: 50%;
-    padding: 0 5px;
+    width: 25px;
+    height: 25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-footer .footer-player .upper-row .play-song > i {
-    width: 10px;
-    height: 10px;
+footer .footer-player .upper-row div.play-song:hover {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+}
+footer .footer-player .upper-row div.play-song:hover i {
+    font-size: 1.25em;
+    line-height: 0.05em;
+    vertical-align: -0.075em;
 }
 
 /* --- --- Sezione: Durata Canzone (Lower Row) */
@@ -240,19 +314,43 @@ footer .footer-player .lower-row {
 footer .footer-player .lower-row span {
     font-size: 0.8rem;
 }
+footer .footer-player .lower-row .progress-bar {
+    margin: 0 10px;
+}
 
 /* --- Sezione: Options */
 footer .footer-options {
-    justify-content: space-between;
+    justify-content: flex-end;
+    margin-right: 10px;
+
+    color: whitesmoke;
+}
+
+footer .footer-options ul {
+    display: flex;
+    min-width: 150px;
+}
+
+footer .footer-options li {
+    margin: 0 5px;
+}
+
+footer .footer-options li:hover {
+    cursor: pointer;
+}
+
+footer .footer-options li:last-child {
+    display: flex;
+    align-items: center;
 }
 
 /************************************************
     RESPONSIVE: MOBILE-FIRST
  ************************************************/
-/* TABLET */
-@media screen and (min-width: 878px) {
+/* TABLET - s */
+@media screen and (min-width: 639px) {
     :root {
-        --main-col-left-width: 300px;
+        --main-col-left-width: 250px;
     }
 
     /***********************
@@ -272,8 +370,8 @@ footer .footer-options {
         MAIN 
      ***********************/
     main .header-col nav > div:hover,
-    main .main-col > div:hover,
-    main .main-col li:hover,
+    main .playlist-button > div:hover,
+    main .playlist-list li:hover,
     main .footer-col > div:hover:not(.profile-container) {
         cursor: pointer;
         color: whitesmoke;
@@ -290,12 +388,16 @@ footer .footer-options {
         display: block;
     }
 
-    main .main-col,
+    main .playlist-button,
+    main .playlist-list,
     main .footer-col {
         margin: 20px;
     }
 
-    main .left-column > * div:not(.logo-container, .list-button-text) {
+    main
+        .left-column
+        > *
+        div:not(.logo-container, .list-button-text, .playlist-button) {
         display: flex;
         align-items: center;
     }
@@ -304,12 +406,18 @@ footer .footer-options {
         width: 30px;
         height: 30px;
         margin-right: 10px;
-        filter: contrast(50%);
     }
 
-    main .left-column img.selected,
-    main .left-column img.profile-picture {
-        filter: contrast(100%);
+    main
+        .left-column
+        img:not(
+            .selected,
+            .profile-picture,
+            .download-icon,
+            .logo-small,
+            .logo
+        ) {
+        filter: contrast(50%);
     }
 
     main .home-container span,
@@ -339,25 +447,28 @@ footer .footer-options {
         filter: contrast(100%);
     }
 
-    /* --- --- --- Sezione: Home Button */
-    main .home-container {
-        border-left: 3px solid lightgreen;
+    .header-col nav > * {
+        border-left: 3px solid transparent;
+    }
+
+    .header-col nav .active {
+        border-color: lightgreen;
     }
 
     /* --- Sezione: MAIN */
-    .main-col {
-        flex-grow: 1;
-        overflow-y: auto;
-        min-height: 80px;
+    /* --- --- Sezione: Create Playlist Button */
+    main .playlist-button {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 0;
     }
 
-    /* --- --- Sezione: Title */
-    main .main-col h2 {
+    main .playlist-button h2 {
         color: whitesmoke;
         font-size: 1.1rem;
     }
 
-    /* --- --- Sezione: Create Playlist Button */
     main .create-list-container > div {
         width: 40px;
         height: 40px;
@@ -379,9 +490,18 @@ footer .footer-options {
         padding-bottom: 10px;
     }
 
-    /* --- --- Sezione: Playlist */
-    main .playlist {
+    /* --- --- Sezione: Playlist List */
+    main .playlist-list {
+        margin-top: 0;
+        overflow-y: auto;
+        min-height: 32px;
+    }
+
+    main li div.playlist {
         padding: 10px 0;
+    }
+    main li:last-child div.playlist {
+        padding-bottom: 0;
     }
 
     /* --- Sezione: FOOTER */
@@ -390,15 +510,46 @@ footer .footer-options {
         border-bottom: 1px solid lightgray;
         padding-bottom: 5px;
         margin-bottom: 5px;
+        margin-left: 4px;
     }
 
     main img.download-icon {
-        margin-right: 20px;
+        margin-right: 15px;
     }
 }
 
-/* DESKTOP */
+/* TABLET - md */
+@media screen and (min-width: 942px) {
+    /***********************
+        FOOTER 
+     ***********************/
+    /* --- Sezione: Song */
+    /* --- --- Sezione: Pulsanti Album */
+    footer .footer-song nav {
+        /* width: 20px; */
+    }
+    footer .footer-song nav ul {
+        display: flex;
+    }
+    footer .footer-song nav li {
+        margin: 0 8px;
+    }
+
+    /* --- Sezione: Player */
+    /* --- --- Sezione: Lower Row */
+    footer .footer-player .lower-row .progress-bar {
+        margin: 0 20px;
+    }
+}
+
+/* DESKTOP - lg */
 @media screen and (min-width: 1440px) {
-    :root {
+    /***********************
+        FOOTER 
+     ***********************/
+    /* --- Sezione: Player */
+    /* --- --- Sezione: Lower Row */
+    footer .footer-player .lower-row .progress-bar {
+        margin: 0 30px;
     }
 }
