@@ -30,6 +30,7 @@ ul {
 
 button {
     font-family: inherit;
+    font-size: 0.8rem;
 }
 
 /************************************************
@@ -178,20 +179,28 @@ main .main-header {
 
     text-align: right;
     line-height: var(--header-footer-height);
+
+    position: relative;
 }
 
 main .main-header button {
+    position: absolute;
+    right: 25px;
+    top: calc(var(--header-footer-height) / 2);
+    transform: translate(0, -50%);
+
     background-color: transparent;
-    color: white;
+    color: whitesmoke;
     font-weight: bold;
     border: 1px solid white;
-    border-radius: 20px;
+    border-radius: 30px;
 
     padding: 13px 40px;
-    margin-right: 20px;
 }
 main .main-header button:hover {
     cursor: pointer;
+    font-size: 0.9rem;
+    right: 15px;
 }
 
 /* --- Sezione: Contenuto */
